@@ -1,0 +1,24 @@
+import cv2
+import numpy as np
+img=cv2.imread(r'C:\workspace\python\data\image\logo.png')
+a,b,c=cv2.split(img)
+print(a)
+R=img.copy()
+G=img.copy()
+B=img.copy()
+# set green and red channels to 0
+B[:, :, 1] = 0
+B[:, :, 2] = 0
+cv2.imshow('logo',B)
+cv2.imwrite('logo-B',B)
+cv2.waitKey(0)
+# set blue and red channels to 0
+G[:, :, 0] = 0
+G[:, :, 2] = 0
+cv2.imshow('logo',G)
+cv2.waitKey(0)
+# set blue and green channels to 0
+R[:, :, 0] = 0
+R[:, :, 1] = 0
+cv2.imshow('logo',R)
+cv2.waitKey(0)
