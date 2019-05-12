@@ -1,0 +1,14 @@
+import cv2
+import numpy as np
+img=cv2.imread(r'E:\Python Data\data\image\smile.jpg')
+b,g,r=cv2.split(img)
+
+#print(img.shape) (288, 1150, 3)
+#print(b.shape) (288, 1150)
+zero=np.zeros(b.shape,np.uint8) #g.shape or r.shape 
+B=cv2.merge([b,zero,zero])         
+G=cv2.merge([zero,g,zero])
+R=cv2.merge([zero,zero,r])
+cv2.imshow('Blue',B) ; cv2.waitKey(0) ; cv2.destroyAllWindows()
+cv2.imshow('Green',G) ; cv2.waitKey(0) ; cv2.destroyAllWindows()
+cv2.imshow('Red',R) ; cv2.waitKey(0) ; cv2.destroyAllWindows()
