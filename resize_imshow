@@ -1,0 +1,14 @@
+import cv2
+import numpy as np
+import os
+print(type(cv2.VideoCapture('AI.mp4')))
+cap=cv2.VideoCapture('AI.mp4')
+while True:
+    rtn,frame=cap.read()
+    gray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+    cv2.namedWindow('logo')
+    cv2.resizeWindow('logo',(600,400))
+    cv2.imshow('logo',gray)
+    if cv2.waitKey(24) & 0xFF== ord('q'):break
+cap.release()
+cv2.destroyAllWindows()
